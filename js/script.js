@@ -80,6 +80,13 @@ while(i <= 84)
         alert('Non inserire lo stesso numero');
     }
     console.log(numeroScelto);
+
+    // *Se il numero scelto dall'utente è uguale ad un numero presente nell'array numRand, l'utente perde
+    if (arrayUtente === numRand)
+    {
+        console.log('Hai beccato una bomba, hai perso');
+        // ?NON funziona, correggere
+    }
 }
 
 
