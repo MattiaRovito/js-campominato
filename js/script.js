@@ -54,9 +54,14 @@ console.log(numRand);
 
 
 
+// * richiesta di 84 volte di inserire un numero compreso tra 1 e 100.
 
+for(var i = 0; i <= 84; i++)
+{
+    var scegli = prompt('Scegli un numero tra 1 e 100');
+    console.log(scegli);
 
-
+}
 
 
 
