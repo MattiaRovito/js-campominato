@@ -56,29 +56,29 @@ console.log(numRand);
 
 // *Richiesta di 84 volte di inserire un numero compreso tra 1 e 100.
 
+var arrayUtente = []
+
+
 var i = 0;
 while(i <= 84)
 {
     var numeroScelto = parseInt(prompt('Scegli un numero tra 1 e 100'));
+
     
     // !L'utente dovrà scegliere per forza un numero compreso tra 1 e 100, quindi inseriamo degli alert.
-    if (numeroScelto < 1 || numeroScelto > 100)
+    if (numeroScelto < 1 || numeroScelto > 100 || isNaN(numeroScelto) )
     {
         alert('Inserire il numero corretto');
-    }
-    if (isNaN(numeroScelto))
-    {
-        alert('Inserire un numero!');
     }
     i++;
     console.log(numeroScelto);
 
     // !L'utente non potrà scegliere più volte lo stesso numero.
-    if (numeroScelto)
-    {
+    if (!arrayUtente.includes(numeroScelto)){
+        arrayUtente.push(numeroScelto);
+    } else {
         alert('Non inserire lo stesso numero');
     }
-
 }
 
 
