@@ -1,72 +1,83 @@
-// ?STEP 1 Il computer deve generare 16 numeri casuali tra 1 e 100.
+
+var genera = document.getElementById('genera');
+
+genera.addEventListener('click', function(){
 
 
-// *Abbiamo un array vuoto, dove dobbiamo inserire, ogni volta, 16 numeri casuali tra 1 e 100.
-var numRand = [];
-
-// *La funzione creata serve per generare in modo randomico dei numeri.
-function random(min, max)
-{
-    return Math.floor(Math.random() * (max - min + 1) + min);
-}
-
-// ?STEP 2 I numeri non possono essere duplicati. 
+    // ?STEP 1 Il computer deve generare 16 numeri casuali tra 1 e 100.
 
 
-// *Per evitare duplicati, conviene utilizzare il while al posto del for. La versione for è comunque scritta e commentata alla fine del codice js.
+    // *Abbiamo un array vuoto, dove dobbiamo inserire, ogni volta, 16 numeri casuali tra 1 e 100.
+    var numRand = [];
 
-while(numRand.length < 16){
-    if (!numRand.includes(random(1, 100))){
-        numRand.push(random(1,100));
-    }
-}
-console.log(numRand);
-
-
-// ?STEP 3 Il computer, in seguito, deve chiedere all’utente (84) volte di inserire un numero compreso tra 1 e 100. uno alla volta.
-
-// *Creiamo quindi un arrayUtente vuoto dove andremo ad inserire ogni volta il numero scelto dall'utente.
-var arrayUtente = []
-
-// *Utilizziamo il while, così facendo il ciclo continuerà FINTANTOCHÈ non beccherà una bomba.
-var i = 0;
-
-while(i <= 84)
-{
-    var numeroScelto = parseInt(prompt('Scegli un numero tra 1 e 100'));
-  
-    // !L'utente dovrà scegliere per forza un numero compreso tra 1 e 100, quindi inseriamo degli alert.
-    if (numeroScelto < 1 || numeroScelto > 100 || isNaN(numeroScelto) )
+    // *La funzione creata serve per generare in modo randomico dei numeri.
+    function random(min, max)
     {
-        alert('Inserire il numero corretto');
-    }
-    i++;
-
-    // ?STEP 4 L’utente non può inserire più volte lo stesso numero. 
-
-    if (!arrayUtente.includes(numeroScelto) && numeroScelto >= 1 && numeroScelto <= 100){
-        arrayUtente.push(numeroScelto);
-        console.log(arrayUtente);
-    } else {
-        alert('Non inserire lo stesso numero');
-    }
-    // console.log(numeroScelto);
-
-    // ?STEP 5 Se il numero è presente nella lista dei numeri generati, la partita termina, altrimenti si continua chiedendo all’utente un altro numero.
-    // ?STEP 6 La partita termina quando il giocatore inserisce un numero “vietato” o raggiunge il numero massimo possibile di numeri consentiti.
-    if (numRand.includes(numeroScelto)){
-        alert('Hai perso');
-        break;
-    } else if (numeroScelto.length <= 84){
-        alert('Hai vinto');
-        break;
+        return Math.floor(Math.random() * (max - min + 1) + min);
     }
 
-}
-
-// ?STEP 7 Al termine della partita il software deve comunicare il punteggio, cioè il numero di volte che l’utente ha inserito un numero consentito.
+    // ?STEP 2 I numeri non possono essere duplicati. 
 
 
+    // *Per evitare duplicati, conviene utilizzare il while al posto del for. La versione for è comunque scritta e commentata alla fine del codice js.
+
+    while(numRand.length < 16){
+        if (!numRand.includes(random(1, 100))){
+            numRand.push(random(1,100));
+        }
+    }
+    console.log(numRand);
+
+
+    // ?STEP 3 Il computer, in seguito, deve chiedere all’utente (84) volte di inserire un numero compreso tra 1 e 100. uno alla volta.
+
+    // *Creiamo quindi un arrayUtente vuoto dove andremo ad inserire ogni volta il numero scelto dall'utente.
+    var arrayUtente = []
+
+    // *Utilizziamo il while, così facendo il ciclo continuerà FINTANTOCHÈ non beccherà una bomba.
+    var i = 0;
+
+    while(i <= 84)
+    {
+        var numeroScelto = parseInt(prompt('Scegli un numero tra 1 e 100'));
+    
+        // !L'utente dovrà scegliere per forza un numero compreso tra 1 e 100, quindi inseriamo degli alert.
+        if (numeroScelto < 1 || numeroScelto > 100 || isNaN(numeroScelto) )
+        {
+            alert('Inserire il numero corretto');
+        }
+        i++;
+
+        // ?STEP 4 L’utente non può inserire più volte lo stesso numero. 
+
+        if (!arrayUtente.includes(numeroScelto) && numeroScelto >= 1 && numeroScelto <= 100){
+            arrayUtente.push(numeroScelto);
+            console.log(arrayUtente);
+        } else {
+            alert('Non inserire lo stesso numero');
+        }
+        // console.log(numeroScelto);
+
+        // ?STEP 5 Se il numero è presente nella lista dei numeri generati, la partita termina, altrimenti si continua chiedendo all’utente un altro numero.
+        // ?STEP 6 La partita termina quando il giocatore inserisce un numero “vietato” o raggiunge il numero massimo possibile di numeri consentiti.
+        if (numRand.includes(numeroScelto)){
+            alert('Hai perso');
+            document.getElementById('bomba').innerHTML = 'Oh no! Hai beccato una bomba! <i class="fas fa-bomb"></i>';
+            document.getElementById('punti-totalizzati').innerHTML = 'Hai totalizzato' + ' ' + (arrayUtente.length - 1) + ' ' + 'punti <i class="fas fa-trophy"></i>';
+            break;
+        } else if (numeroScelto.length <= 84){
+            alert('Hai vinto');
+            document.getElementById('vittoria').innerHTML = 'Complimenti! Hai vinto!!'
+            break;
+        }
+
+        // ?STEP 7 Al termine della partita il software deve comunicare il punteggio, cioè il numero di volte che l’utente ha inserito un numero consentito.
+
+        document.getElementById('numeri').innerHTML = arrayUtente + ' ';
+        // console.log(numeroScelto);
+
+    }
+});
 
 
 
