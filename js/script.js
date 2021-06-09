@@ -1,23 +1,8 @@
 // ?STEP 1 Il computer deve generare 16 numeri casuali tra 1 e 100.
 
-// ?STEP 2 I numeri non possono essere duplicati. 
 
-// ?STEP 3 Il computer, in seguito, deve chiedere all’utente (84) volte di inserire un numero compreso tra 1 e 100, uno alla volta.
-
-// ?STEP 4 L’utente non può inserire più volte lo stesso numero. 
-
-// ?STEP 5 Se il numero è presente nella lista dei numeri generati, la partita termina, altrimenti si continua chiedendo all’utente un altro numero.
-
-// ?STEP 6 La partita termina quando il giocatore inserisce un numero “vietato” o raggiunge il numero massimo possibile di numeri consentiti. 
-
-// ?STEP 7 Al termine della partita il software deve comunicare il punteggio, cioè il numero di volte che l’utente ha inserito un numero consentito.
-
-
-// !Abbiamo un array vuoto, dove dobbiamo inserire, ogni volta, 16 numeri casuali tra 1 e 100.
+// *Abbiamo un array vuoto, dove dobbiamo inserire, ogni volta, 16 numeri casuali tra 1 e 100.
 var numRand = [];
-
-// !Si potrebbe utilizzare il for, tuttavia, all'interno dell'array, si otterranno dei duplicati.
-
 
 // *La funzione creata serve per generare in modo randomico dei numeri.
 function random(min, max)
@@ -25,25 +10,10 @@ function random(min, max)
     return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
-
-// *Con il for si andranno a pushare i numeri creati all'interno dell'array creato.
-for( var i = 1; i <= 16; i++)
-{
-    // * se l'array non include i numeri creati, pushali all'interno.
-    if (!numRand.includes(random(1, 100))){
-        numRand.push(random(1,100));
-    } else
-    {
-        i--;
-    }   
-}
-// console.log(numRand);
-
-// TODO---------------------------------------------------------------------------------------------------
+// ?STEP 2 I numeri non possono essere duplicati. 
 
 
-
-// !Per evitare duplicati, conviene quindi utilizzare il while.
+// *Per evitare duplicati, conviene utilizzare il while al posto del for. La versione for è comunque scritta e commentata alla fine del codice js.
 
 while(numRand.length < 16){
     if (!numRand.includes(random(1, 100))){
@@ -53,16 +23,18 @@ while(numRand.length < 16){
 console.log(numRand);
 
 
+// ?STEP 3 Il computer, in seguito, deve chiedere all’utente (84) volte di inserire un numero compreso tra 1 e 100. uno alla volta.
 
-// *Richiesta di 84 volte di inserire un numero compreso tra 1 e 100.
-
+// *Creiamo quindi un arrayUtente vuoto dove andremo ad inserire ogni volta il numero scelto dall'utente.
 var arrayUtente = []
+
+// *Utilizziamo il while, così facendo il ciclo continuerà FINTANTOCHÈ non beccherà una bomba.
 var i = 0;
+
 while(i <= 84)
 {
     var numeroScelto = parseInt(prompt('Scegli un numero tra 1 e 100'));
-   
-   
+  
     
     // !L'utente dovrà scegliere per forza un numero compreso tra 1 e 100, quindi inseriamo degli alert.
     if (numeroScelto < 1 || numeroScelto > 100 || isNaN(numeroScelto) )
@@ -95,6 +67,59 @@ while(i <= 84)
 
 
 
+
+
+
+
+
+// ?STEP 4 L’utente non può inserire più volte lo stesso numero. 
+
+// ?STEP 5 Se il numero è presente nella lista dei numeri generati, la partita termina, altrimenti si continua chiedendo all’utente un altro numero.
+
+// ?STEP 6 La partita termina quando il giocatore inserisce un numero “vietato” o raggiunge il numero massimo possibile di numeri consentiti. 
+
+// ?STEP 7 Al termine della partita il software deve comunicare il punteggio, cioè il numero di volte che l’utente ha inserito un numero consentito.
+
+
+
+
+
+// TODO---------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// !PROVE
+
+// -----------------------------------------------------------------------
+
+// *Si potrebbe utilizzare il for, tuttavia, all'interno dell'array, si otterranno dei duplicati.
+// *Con il for si andranno a pushare i numeri creati all'interno dell'array creato.
+// for( var i = 1; i <= 16; i++)
+// {
+    // se l'array non include i numeri creati, pushali all'interno.
+//     if (!numRand.includes(random(1, 100))){
+//         numRand.push(random(1,100));
+//     } else
+//     {
+//         i--;
+//     }   
+// }
+// console.log(numRand);
 
 
 
