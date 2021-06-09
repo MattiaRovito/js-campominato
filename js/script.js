@@ -35,7 +35,6 @@ while(i <= 84)
 {
     var numeroScelto = parseInt(prompt('Scegli un numero tra 1 e 100'));
   
-    
     // !L'utente dovrà scegliere per forza un numero compreso tra 1 e 100, quindi inseriamo degli alert.
     if (numeroScelto < 1 || numeroScelto > 100 || isNaN(numeroScelto) )
     {
@@ -43,38 +42,33 @@ while(i <= 84)
     }
     i++;
 
+    // ?STEP 4 L’utente non può inserire più volte lo stesso numero. 
 
-    // !L'utente non potrà scegliere più volte lo stesso numero.
     if (!arrayUtente.includes(numeroScelto) && numeroScelto >= 1 && numeroScelto <= 100){
         arrayUtente.push(numeroScelto);
         console.log(arrayUtente);
     } else {
         alert('Non inserire lo stesso numero');
     }
-    console.log(numeroScelto);
-
-    // *Se il numero scelto dall'utente è uguale ad un numero presente nell'array numRand, l'utente perde
-    if (arrayUtente === numRand)
-    {
-        console.log('Hai beccato una bomba, hai perso');
-        // ?NON funziona, correggere
-    }
+    // console.log(numeroScelto);
 }
 
-
-
-
-
-
-
-
-
-
-
-
-// ?STEP 4 L’utente non può inserire più volte lo stesso numero. 
-
 // ?STEP 5 Se il numero è presente nella lista dei numeri generati, la partita termina, altrimenti si continua chiedendo all’utente un altro numero.
+
+// if (numeroScelto[i] == numRand[i]){
+//         alert('hai perso');
+// }
+
+
+
+
+
+
+
+
+
+
+
 
 // ?STEP 6 La partita termina quando il giocatore inserisce un numero “vietato” o raggiunge il numero massimo possibile di numeri consentiti. 
 
