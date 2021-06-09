@@ -3,6 +3,21 @@ var genera = document.getElementById('genera');
 
 genera.addEventListener('click', function(){
 
+    var livello = document.getElementById('level').value;
+
+    var levelDifficult;
+    switch(livello){
+        case '2':
+            levelDifficult = 32;
+            break;
+        case '3':
+            levelDifficult = 45;
+            break;
+        default: levelDifficult = 16;
+    }
+    console.log(livello);
+
+    
 
     // ?STEP 1 Il computer deve generare 16 numeri casuali tra 1 e 100.
 
@@ -21,7 +36,7 @@ genera.addEventListener('click', function(){
 
     // *Per evitare duplicati, conviene utilizzare il while al posto del for. La versione for è comunque scritta e commentata alla fine del codice js.
 
-    while(numRand.length < 16){
+    while(numRand.length < levelDifficult){
         if (!numRand.includes(random(1, 100))){
             numRand.push(random(1,100));
         }
@@ -53,7 +68,8 @@ genera.addEventListener('click', function(){
         if (!arrayUtente.includes(numeroScelto) && numeroScelto >= 1 && numeroScelto <= 100){
             arrayUtente.push(numeroScelto);
             console.log(arrayUtente);
-        } else {
+        } 
+        else {
             alert('Non inserire lo stesso numero');
         }
         // console.log(numeroScelto);
@@ -62,8 +78,8 @@ genera.addEventListener('click', function(){
         // ?STEP 6 La partita termina quando il giocatore inserisce un numero “vietato” o raggiunge il numero massimo possibile di numeri consentiti.
         if (numRand.includes(numeroScelto)){
             alert('Hai perso');
-            document.getElementById('bomba').innerHTML = 'Oh no! Hai beccato una bomba! <i class="fas fa-bomb"></i>';
-            document.getElementById('punti-totalizzati').innerHTML = 'Hai totalizzato' + ' ' + (arrayUtente.length - 1) + ' ' + 'punti <i class="fas fa-trophy"></i>';
+            document.getElementById('bomba').innerHTML = 'Oh no! Hai beccato una bomba! ' + numeroScelto + ' <i class="fas fa-bomb"></i>';
+            document.getElementById('punti-totalizzati').innerHTML = 'Hai totalizzato ' + (arrayUtente.length - 1) + ' punti <i class="fas fa-trophy"></i>';
             break;
         } else if (numeroScelto.length <= 84){
             alert('Hai vinto');

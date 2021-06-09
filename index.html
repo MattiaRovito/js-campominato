@@ -18,17 +18,23 @@
 <body>
 <div class="container text-center">
     <h1 class="mt-3">Benvenuti a campo minato</h1>
+
+    <h3>Scegli il livello di difficoltà</h3>
+
+    <select id="level">
+        <option value="1">Facile</option>
+        <option value="2">Medio</option>
+        <option value="3">Difficile</option>
+    </select>
     
     <h3>Clicca il pulsante per iniziare a giocare!</h3>
 
     <button type="button" id="genera" class="btn btn-success mt-2">Giochiamo!</button>
    
     
-    <div class="fw-bold mt-2">Numeri scelti:</div>
-    
-    <div id="numeri" class="mt-2 fw-bold"></div>
-    
-    <div id="bomba" class="mt-2 fw-bold"></div>
+    <div class="fw-bold mt-2">Numeri scelti: <span id="numeri" class="mt-2 fw-bold"></span></div>
+       
+    <div id="bomba" class="mt-2 fw-bold text-danger"></div>
     
     <div id="punti-totalizzati" class="mt-2 fw-bold"></div>
     
