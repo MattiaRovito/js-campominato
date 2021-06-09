@@ -51,38 +51,20 @@ while(i <= 84)
         alert('Non inserire lo stesso numero');
     }
     // console.log(numeroScelto);
+
+    // ?STEP 5 Se il numero è presente nella lista dei numeri generati, la partita termina, altrimenti si continua chiedendo all’utente un altro numero.
+    // ?STEP 6 La partita termina quando il giocatore inserisce un numero “vietato” o raggiunge il numero massimo possibile di numeri consentiti.
+    if (numRand.includes(numeroScelto)){
+        alert('Hai perso');
+        break;
+    } else if (numeroScelto.length <= 84){
+        alert('Hai vinto');
+        break;
+    }
+
 }
 
-// ?STEP 5 Se il numero è presente nella lista dei numeri generati, la partita termina, altrimenti si continua chiedendo all’utente un altro numero.
-
-// if (numeroScelto[i] == numRand[i]){
-//         alert('hai perso');
-// }
-
-
-
-
-
-
-
-
-
-
-
-
-// ?STEP 6 La partita termina quando il giocatore inserisce un numero “vietato” o raggiunge il numero massimo possibile di numeri consentiti. 
-
 // ?STEP 7 Al termine della partita il software deve comunicare il punteggio, cioè il numero di volte che l’utente ha inserito un numero consentito.
-
-
-
-
-
-// TODO---------------------------------------------------------------------------------------------------
-
-
-
-
 
 
 
