@@ -57,22 +57,22 @@ genera.addEventListener('click', function(){
         var numeroScelto = parseInt(prompt('Scegli un numero tra 1 e 100'));
     
         // !L'utente dovrà scegliere per forza un numero compreso tra 1 e 100, quindi inseriamo degli alert.
+         // ?STEP 4 L’utente non può inserire più volte lo stesso numero. 
         if (numeroScelto < 1 || numeroScelto > 100 || isNaN(numeroScelto) )
         {
             alert('Inserire il numero corretto');
-        }
-        i++;
-
-        // ?STEP 4 L’utente non può inserire più volte lo stesso numero. 
-
-        if (!arrayUtente.includes(numeroScelto) && numeroScelto >= 1 && numeroScelto <= 100){
+        } else if (!arrayUtente.includes(numeroScelto) && numeroScelto >= 1 && numeroScelto <= 100){
             arrayUtente.push(numeroScelto);
             console.log(arrayUtente);
-        } 
-        else {
+        } else {
             alert('Non inserire lo stesso numero');
         }
         // console.log(numeroScelto);
+        i++;
+
+       
+
+       
 
         // ?STEP 5 Se il numero è presente nella lista dei numeri generati, la partita termina, altrimenti si continua chiedendo all’utente un altro numero.
         // ?STEP 6 La partita termina quando il giocatore inserisce un numero “vietato” o raggiunge il numero massimo possibile di numeri consentiti.
